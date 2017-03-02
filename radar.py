@@ -20,9 +20,10 @@ class Radar(object):
         # una_senal = self.generador.generar(tiempo_inicial, tiempo_final)
         #
         # una_senal_reflejada = medio.reflejar(una_senal, tiempo_inicial, \
-        # tiempo_final)
+        # tiempo_final) #una lista de senales emitidas x los blancos
         #
-        # return self.detector.detectar(una_senal_reflejada)
+        #      boolBlanco = self.detector.detectar(una_senal, una_senal_reflejada)  #lista booleana de blancos
+ 	#return boolBlanco
         pass
 
     #TODO agregar el metodo plotear_senal

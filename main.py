@@ -16,7 +16,7 @@ def main():
     # Intervalo de tiempo en el que vamos a medir
     tiempo_inicial = datetime.datetime(2016, 3, 5, 1)
     tiempo_final = datetime.datetime(2016, 3, 5, 10)
-
+	
     import math
     # parametros del generador de senales
     amplitud = 0.2
@@ -24,10 +24,15 @@ def main():
     frecuencia = 20*math.pi
 
     #TODO construir un nuevo genrador de senales
+    oGenerador = generador.Generador(amplitud, fase, frecuencia)
+    oGenerador.generar(tiempo_inicial, tiempo_final)
+
 
     #TODO construir un detector
+    oDetector = detector.Detector()
 
     #TODO construir un nuevo radar
+    oRadar = radar.Radar(oGenerador, oDetector)
 
 
     # parametros para un blanco

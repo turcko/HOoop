@@ -1,7 +1,7 @@
 class Medio(object):
 
     def __init__(self, blancos):
-        self.blancos = blancos
+        self.blancos = blancos #listas de blancos
 
 
     def reflejar(self, una_senal, tiempo_inicial, tiempo_final):
@@ -11,4 +11,9 @@ class Medio(object):
 
         #TODO reflejar en un medio debe reflejar en todos los blancos de un medio
         #y devolver la senal reflejada
+	i = 0
+        #for oBlanco in blancos # elemento en blancos
+        #         una_senal = oBlanco.reflejar(una_senal, tiempo_inicial, tiempo_final) #retorna una lista de señales de cada uno de los bancos q tiene el medio
+                  i = i+1
+        #retorno una_senal
         pass
