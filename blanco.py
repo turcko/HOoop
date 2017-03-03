@@ -15,21 +15,27 @@ class Blanco(object):
         #TODO ver como se encajan los tiempos del blanco y del intervalo de tiempo
         #(interseccion de invervalos)
         # despues aplicar los parametros del blanco sobre ese intervalo de tiempo
-        #controlo q este en el intervalo de la senal
+        
+        # control en caso de que el intervalo de tiempo pase alguno de los limites
         if(self.hayInterseccion(tiempo_inicial, tiempo_final)):
+            if(self.tiempo_inicial.hour <= tiempo_inicial.hour):
+                self.tiempo_inicial = tiempo_inicial
+            elif (self.tiempo_final.hour >= tiempo_final.hour):
+                self.tiempo_final <= tiempo_final
+
+            # controlo q este en el intervalo de la senal
             # regla de 3 simple. Basada en tiempo de deteccion de blanco
             muestrasIntersectadas = (self.tiempo_final - self.tiempo_inicial).seconds * len(senal) / (tiempo_final - tiempo_inicial).seconds
-            print("muestras intersec", muestrasIntersectadas)
+            print("Cantidad de muestras intersectadas: ", muestrasIntersectadas)
             # otra regla de 3 simple :P . Basada en tiempo de muestreo
             tiempoDeUnaMuestra = float(float((tiempo_final - tiempo_inicial).seconds) / float(len(senal)))
             rangoIni = (self.tiempo_inicial - tiempo_inicial).seconds / tiempoDeUnaMuestra
             rangoDeMuestra = range(int(rangoIni), int(rangoIni+muestrasIntersectadas))
-            # y multipllico x amplitud ese pedazo de senal y retorno    
+            print("Rango de senal alterada: ", rangoDeMuestra)
+            # senal * amplitud
             ret = [senal[i] * self.amplitud for i in rangoDeMuestra]
             return ret
-        
 
-        
     def hayInterseccion(self, tiempo_inicial, tiempo_final):
         ultimoInicio = max(self.tiempo_inicial.hour, tiempo_inicial.hour)
         primerFin = min(self.tiempo_final.hour, tiempo_final.hour)
