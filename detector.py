@@ -7,5 +7,5 @@ class Detector(object):
     def detectar(self, senal):
 
         #TODO: Completar
-#compara 2 señales pto a pto y retorna bool
+#compara 2 senales pto a pto y retorna bool
         pass
