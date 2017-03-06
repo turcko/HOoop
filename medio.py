@@ -11,10 +11,8 @@ class Medio(object):
 
         #TODO reflejar en un medio debe reflejar en todos los blancos de un medio
         #y devolver la senal reflejada
-        listaDeBlancos = []
-        for oBlanco in self.blancos:
-            #lista de senales de cada uno de los bancos q tiene el medio
-            listaDeBlancos.append(oBlanco.reflejar(una_senal, tiempo_inicial, tiempo_final)) 
-        print(listaDeBlancos)
-        return listaDeBlancos
+        if self.blancos:
+            for oBlanco in self.blancos:
+                una_senal = oBlanco.reflejar(una_senal, tiempo_inicial, tiempo_final)
+        return una_senal
         
